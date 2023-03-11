@@ -14,4 +14,4 @@ app.config.globalProperties.$bus = $bus;
 // to have access to $pages in all components
 app.config.globalProperties.$pages = $pages;
 
-app.mount('#app');
+app.mount('#app'); 
