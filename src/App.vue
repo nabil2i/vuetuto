@@ -1,26 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <navbar> 
+  </navbar>
+
+  <router-view></router-view>
+<!--
+  <page-viewer
+    v-if="pages.length > 0"
+    :page="pages[activePage]"
+     > 
+  </page-viewer>
+
+  <create-page
+    @page-created="pageCreated">
+
+  </create-page>
+  -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    Navbar,
+
+    
+  },
+  // created() {
+  //   this.getPages();
+    
+    // this.$bus.$on('navbarLinkActivated', (index) => {
+    //   this.activePage = index;
+    // });
+  // },
+  // data() {
+  //       return {
+  //         activePage: 0,
+  //         pages: []
+  //       };
+  // },
+  methods: {
+    // async getPages() {
+    //   let res = await fetch('pages.json');
+    //   let data = await res.json();
+
+    //   this.pages = data;
+    // },
+    pageCreated(pageObj) {
+      // console.log(pageObj);
+      this.pages.push(pageObj)
+      // vue is notified of changes to pages and it will update the UI
+    }
   }
+  
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
