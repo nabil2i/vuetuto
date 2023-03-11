@@ -1,9 +1,9 @@
-import {createApp} from 'vue';
-import App from './App.vue';
+import { createApp } from 'vue';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import $bus from './utils/Events';
-import router from './routes';
+import App from './App.vue';
 import $pages from './data';
+import router from './routes';
+import $bus from './utils/Events';
 
 const app = createApp(App);
 
@@ -21,4 +21,4 @@ app.provide('$bus', $bus);
 // the component that needs it
 app.provide('$pages', $pages); // (key, value)
 
-app.mount('#app'); 
+app.mount('#app');
