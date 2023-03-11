@@ -16,10 +16,10 @@
               <li>
                 <router-link
                   class="nav-link"
-                  to="/create" 
+                  to="/pages" 
                   aria-current="page"
                   active-class="active"
-                >Create Page
+                >Pages
               </router-link> 
               </li>
           </ul>
@@ -40,10 +40,17 @@ import NavbarLink from './NavbarLink.vue';
     components: {
       NavbarLink
     },
+    inject: ['$pages', '$bus'],
     created() {
       this.getThemeSettings();
-
+      // not watchin individual objects inside the array
       this.pages = this.$pages.getAllPages();
+
+      this.$bus.$on('page-updated', () => {
+        // assign a new array and the component will know the array changed
+        // and update the information
+        this.pages = [... this.$pages.getAllPages()];
+      });
     },
     computed: {
       publishedPages() {
