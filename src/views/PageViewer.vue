@@ -8,6 +8,7 @@
 <script>
   export default {
     props: ['index'],
+    inject: ['$pages'],
     // props: ['page'], //'pageTitle', 'pageContent'
     // props: {
     //   page: {
